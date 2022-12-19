@@ -12,6 +12,8 @@ const MovieContainer = styled.div`
 const CoverImage = styled.img`
   object-fit: cover;
   height: 302px;
+  object-fit: cover;
+  height: 302px;
   width: 282px; 
 `;
 const MovieName = styled.span`

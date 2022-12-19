@@ -27,6 +27,16 @@ const Header = styled.div`
   font-size: 25px;
   font-weight: bold;
   border-bottom: 1px solid #C0C4CC;
+  @media only screen and (max-width: 1100px) {
+    margin: 0px 80px;
+  }
+  @media only screen and (max-width: 800px) {
+    margin: 0px 60px;
+  }
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    margin: 0px 30px;
+  }
 `;
 const SearchBox = styled.div`
   box-sizing: border-box;
@@ -35,20 +45,53 @@ const SearchBox = styled.div`
   padding: 10px 10px;
   border-radius: 6px;
   margin-left: 20px;
-  width: 18%;
+  width: 20vw;
   background-color: white;
   border: 1px solid #C0C4CC;
+  @media only screen and (max-width: 500px) {
+    margin-left: 5px;
+    width: 25vw;
+  }
 `;
 const SearchIcon = styled.img`
-  width: 25px;
-  height: 25px;
+  width: 1.6vw;
+  height: 1.6vw;
+  @media only screen and (max-width: 1100px) {
+    width: : 2vw;
+    height: 2vw;
+  }
+  @media only screen and (max-width: 700px) {
+    width: : 2.3vw;
+    height: 2.3vw;
+  }
+  @media only screen and (max-width: 500px) {
+    width: : 4vw;
+    height: 4vw;
+  }
 `;
 const SearchInput = styled.input`
   color: black;
-  font-size: 16px;
+  font-size: 1.1vw;
   border: none;
   outline: none;
   margin-left: 15px;
+
+  @media only screen and (max-width: 1100px) {
+    margin-left: 12px;
+    font-size: 1.3vw;
+  }
+  @media only screen and (max-width: 900px) {
+    margin-left: 10px;
+    font-size: 1.5vw;
+  }
+  @media only screen and (max-width: 700px) {
+    margin-left: 5px;
+    font-size: 1.7vw;
+  }
+  @media only screen and (max-width: 700px) {
+    margin-left: 5px;
+    font-size: 2vw;
+  }
 `;
 const MovieListContainer = styled.div`
   display: flex;
@@ -58,7 +101,30 @@ const MovieListContainer = styled.div`
   gap: 25px;
   justify-content: space-evenly;
   margin: 0px 80px;
+  @media only screen and (max-width: 1100px) {
+    margin: 0px 40px;
+  }
 `;
+const Heading = styled.span`
+  font-size: 24px;
+  font-weight: bolder;
+  font-family: "Inter";
+  width: 100vw;
+  text-align: left;
+  margin-left: 30px;
+
+  @media only screen and (max-width: 1100px) {
+    margin-left: 18px;
+  }
+  @media only screen and (max-width: 800px) {
+    text-align: center;
+  }
+  @media only screen and (max-width: 600px) {
+    text-align: center;
+    margin-left: 18px;
+    font-size: 18px;
+  }
+`
 
 function App() {
   const [searchQuery, updateSearchQuery] = useState("");
@@ -85,7 +151,7 @@ function App() {
     // updateMovieList(response.data.results);
     return (
       <>
-      <span style={{fontWeight:"bolder", fontSize: "24px", fontFamily:"Inter", width: "100%", textAlign:"left", marginLeft:"30px"}}>Most Recent Movies</span>
+      <Heading>Most Recent Movies</Heading>
       {
         recentMovieList.map((movie, index) => (
           <MovieComponent key={index} movie={movie} onMovieSelect={onMovieSelect}/>
